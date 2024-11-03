@@ -270,4 +270,19 @@
 
     <script>
         const input = document.querySelector('input');
-       
+        const games = document.querySelectorAll('#games a');
+        
+        input.addEventListener('input', function() {
+            const searchTerm = input.value.toLowerCase();
+            games.forEach(game => {
+                const gameTitle = game.querySelector('img').alt.toLowerCase();
+                if (gameTitle.includes(searchTerm)) {
+                    game.style.display = '';
+                } else {
+                    game.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
